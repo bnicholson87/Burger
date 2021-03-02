@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
       changeEatBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
           const id = e.target.getAttribute('data-id');
-          const newSleep = e.target.getAttribute('data-newdevour');
+          // const newDevour = e.target.getAttribute('data-newdevour');
   
           const newEatState = {
-            devour: newDevour,
+            devour: 1,
           };
   
           fetch(`/api/burgers/${id}`, {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             body: JSON.stringify(newEatState),
           }).then((response) => {
             if (response.ok) {
-              console.log(`Status changed to: ${newDevour}`);
+              console.log(`Status changed to: ${newEatState}`);
               location.reload('/');
             } else {
               alert('Not devoured!');
@@ -35,35 +35,35 @@ document.addEventListener('DOMContentLoaded', (event) => {
       });
     }
   
-    // const createCatBtn = document.getElementById('create-form');
+    const insertBurgerBtn = document.getElementById('insert-form');
   
-    // if (createCatBtn) {
-    //   createCatBtn.addEventListener('submit', (e) => {
-    //     e.preventDefault();
+    if (insertBurgerBtn) {
+      insertBurgerBtn.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const newBurger = {
+          burger: document.getElementById('burgerName').value.trim(),
+          devoured: 0,
+        };
+        console.log(newBurger)
+        // Send POST request to create a new quote
+        fetch('/api/burgers', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
   
-    //     // Grabs the value of the textarea that goes by the name, "quote"
-    //     const newCat = {
-    //       name: document.getElementById('ca').value.trim(),
-    //       sleepy: document.getElementById('sleepy').checked,
-    //     };
+          // make sure to serialize the JSON body
+          body: JSON.stringify(newBurger),
+        }).then(() => {
+          // Empty the form
+          document.getElementById('burgerName').value = '';
   
-    //     // Send POST request to create a new quote
-    //     fetch('/api/cats', {
-    //       method: 'POST',
-    //       headers: {
-    //         Accept: 'application/json',
-    //         'Content-Type': 'application/json',
-    //       },
-  
-    //       // make sure to serialize the JSON body
-    //       body: JSON.stringify(newCat),
-    //     }).then(() => {
-    //       // Empty the form
-    //       document.getElementById('ca').value = '';
-  
-    //       // Reload the page so the user can see the new quote
-    //       console.log('Created a new cat!');
-    //       location.reload();
-    //     });
-    //   });
-    // }
+          // Reload the page so the user can see the new quote
+          console.log('Order submitted');
+          location.reload();
+        });
+      });
+    }
+  })

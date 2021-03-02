@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
   
     burger.updateOne([
       {
-        devoured: req.body.devoured,
+        devoured: req.body.devour,
       },
       {
           id: req.params.id
