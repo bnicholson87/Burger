@@ -1,0 +1,40 @@
+body {
+    background-image: url(https://image.freepik.com/free-vector/burger-seamless-pattern-background-vector-design_22159-34.jpg);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: auto;
+}
+
+h1 {
+    font-weight: bolder;
+    color: gold;
+    text-align: center;
+}
+
+.header {
+    background-color: rgb(192, 4, 4);
+    padding: 10px;
+    border: solid black;
+}
+
+h2 {
+    font-weight: bolder;
+    background-color: gold;
+    color: rgb(192, 4, 4);
+    border: solid black;
+    margin: 10px;
+    text-align: center;
+}
+
+.list-group-item {
+    font-weight: bolder;
+    color: rgb(192, 4, 4);
+    border: solid black;
+}
+
+.form-group {
+    font-weight: bolder;
+    color: rgb(192, 4, 4);
+    background-color: white;
+    border: solid black;
+}
