@@ -3,3 +3,5 @@ An app where can type in a burger order, and/or click on the "Eat" button to ind
 Requires mysql and dotenv
 Uses javascript, mysql, handlebars and css
 ![alt text](BurgerScreenshot.png)
+https://buger-bn.herokuapp.com/
+https://github.com/bnicholson87/Burger.git
