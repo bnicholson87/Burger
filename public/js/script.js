@@ -4,10 +4,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     const changeEatBtns = document.querySelectorAll('.change-eat');
-  
+    console.log(changeEatBtns)
     if (changeEatBtns) {
+      
       changeEatBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
+          console.log(button)
           const id = e.target.getAttribute('data-id');
           // const newDevour = e.target.getAttribute('data-newdevour');
   
